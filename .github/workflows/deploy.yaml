@@ -20,3 +20,5 @@ jobs:
           target_branch: gh-pages
           build_dir: out
           author: Hung Pham <truonghungit@gmail.com>
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
