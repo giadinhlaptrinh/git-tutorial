@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const productionBaseUrl = "git-tutorial";
+const productionBaseUrl = "/git-tutorial";
 const BASE_URL = productionBaseUrl || "";
 
 const nextConfig = {
