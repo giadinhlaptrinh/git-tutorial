@@ -8,7 +8,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        primary: {
+          300: "#1098FF",
+          400: "#1098FF",
+          500: "#1098FF",
+          600: "#1098FF",
+          700: "#1098FF",
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

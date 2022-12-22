@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
           <p className="text-lg">
             Made with ❤️ © 2022{" "}
             <a
-              className="text-indigo-800 font-semibold"
+              className="text-primary-500 font-semibold"
               target="_blank"
               rel="noreferrer"
               href="https://www.youtube.com/@giadinhlaptrinh"

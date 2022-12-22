@@ -4,12 +4,12 @@ import { GdButton } from "../../components/buttons";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-indigo-600 px-4">
+    <header className="bg-primary-500 px-4">
       <nav className="max-w-6xl mx-auto">
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/">
-              <span className="text-xl font-bold text-gray-200">
+              <span className="text-2xl font-bold text-gray-100">
                 Gia đình Lập Trình
               </span>
             </Link>
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
                 viewBox="0 0 50 50"
                 width="50px"
                 height="50px"
-                className="block lg:hidden h-8 text-gray-200"
+                className="block lg:hidden h-8 text-gray-100"
               >
                 <g id="surface59037081">
                   <path

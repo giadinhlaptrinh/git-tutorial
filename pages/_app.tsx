@@ -12,6 +12,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AppLayout>
       <Head>
+        <meta content="initial-scale=1, width=device-width" name="viewport" />
+        <meta content="#1098FF" name="theme-color" />
         <link
           rel="icon"
           type="image/x-icon"
@@ -33,10 +35,6 @@ export default function App({ Component, pageProps }: AppProps) {
           type="image/png"
           sizes="16x16"
           href={`${process.env.BASE_URL}/favicon-16x16.png`}
-        />
-        <link
-          rel="manifest"
-          href={`${process.env.BASE_URL}/site.webmanifest`}
         />
       </Head>
 

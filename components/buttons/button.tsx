@@ -21,7 +21,7 @@ export const GdButton = ({
     "relative rounded border font-semibold",
     "focusable transition duration-300 motion-reduce:transition-none",
     {
-      "border-transparent bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2":
+      "border-transparent bg-primary-500 text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2":
         variant === "primary",
       "border-transparent bg-indigo-100 text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2":
         variant === "secondary",

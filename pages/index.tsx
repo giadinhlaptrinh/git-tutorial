@@ -218,7 +218,7 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
               <div className="w-full lg:w-5/12 mb-8 lg:mb-0 flex justify-center lg:justify-end items-center">
                 <img
                   className="w-3/5"
-                  src="./images/girl-enjoying-reading.png"
+                  src={`${process.env.BASE_URL}/images/girl-enjoying-reading.png`}
                   alt="Picture of the author"
                 />
               </div>
