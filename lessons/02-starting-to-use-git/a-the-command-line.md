@@ -1,4 +1,4 @@
 ---
-title: "Cai dat VSCode"
+title: "Command Line"
 description: "Giớ thiệu"
 ---
