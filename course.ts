@@ -1,6 +1,6 @@
 export const courseConfig = {
-  title: "Git Mastery: từ Cơ bản trở thành Chuyên gia",
-  subTitle: "Khóa học Git siêu căn bản cho người mới bắt đầu, Git - một trong những hệ thống quản lý phiên bản phân tán phổ biến nhất hiện nay.",
+  title: "Git and GitHub for Beginners",
+  subTitle: "Khóa học Git và Github siêu căn bản cho người mới bắt đầu",
   description: `
     Git được sử dụng trên toàn thế giới 
     để giúp các nhà phát triển theo dõi các thay đổi khi làm việc trên các phần khác nhau của cùng một dự án.
@@ -21,8 +21,9 @@ export const courseConfig = {
   ],
   social: {
     linkedin: "truonghungit",
-    github: "truonghungit",
-    twitter: "truonghungit"
+    github: "https://github.com/giadinhlaptrinh/git-tutorial",
+    twitter: "truonghungit",
+    playlist: "https://www.youtube.com/playlist?list=PLqD8m6ETjCq7XuS432VoYjLUtK2mO9VIl"
   },
   keywords: ["Git"],
 }

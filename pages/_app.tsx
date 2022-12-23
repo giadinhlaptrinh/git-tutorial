@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta content="initial-scale=1, width=device-width" name="viewport" />
         <meta content="#1098FF" name="theme-color" />
+        <meta name="author" content="giadinhlaptrinh" />
         <link
           rel="icon"
           type="image/x-icon"

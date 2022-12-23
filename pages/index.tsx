@@ -6,7 +6,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { GdBadge } from "../components/badges";
 import { GdButton } from "../components/buttons";
 import GdDisclosure from "../components/disclosures";
@@ -36,7 +35,36 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
     <>
       <Head>
         <title>{course.title}</title>
-        <meta name="description" content={course.description}></meta>
+        <meta name="description" content={course.description} />
+        <meta name="keywords" content={course.keywords?.join(",")} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://giadinhlaptrinh.github.io/git-tutorial"
+        />
+        <meta property="og:site_name" content={course.title} />
+        <meta property="og:title" content={course.title} />
+        <meta property="og:description" content={course.description} />
+        <meta
+          property="og:image"
+          content={`${process.env.BASE_URL}/images/cover.png`}
+        />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content="https://giadinhlaptrinh.github.io/git-tutorial"
+        />
+        <meta property="twitter:title" content={course.title} />
+        <meta property="twitter:description" content={course.description} />
+        <meta
+          property="twitter:image"
+          content={`${process.env.BASE_URL}/images/cover.png`}
+        />
+        <meta name="twitter:creator" content="truonghungit" />
       </Head>
 
       <main>
@@ -57,40 +85,6 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
             </div>
           </div>
         </section>
-
-        {/* <section className="px-4 mt-12">
-          <div className="max-w-5xl mx-auto flex justify-between p-8 border border-gray-500">
-            <div className="flex gap-2 items-center">
-              <ChartBarIcon className="h-10" />
-              <div>
-                <div>Skill level</div>
-                <div className="font-bold">Beginner</div>
-              </div>
-            </div>
-
-            <div className="flex gap-2 items-center">
-              <ClockIcon className="h-10" />
-              <div>
-                <div>Time to complete</div>
-                <div className="font-bold">Approx. 20 hours</div>
-              </div>
-            </div>
-
-            <div className="flex gap-2 items-center">
-              <Bars3BottomLeftIcon className="h-10" />
-              <div>
-                <div>Prerequisites</div>
-                <div className="font-bold">None</div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-        {/* <section className="px-4 mt-12">
-          <div className="max-w-5xl mx-auto flex justify-between p-8 rounded-md border border-gray-500">
-            <h2>About this course</h2>
-          </div>
-        </section> */}
 
         <section className="px-4 mt-12">
           <div className="max-w-5xl flex flex-col lg:flex-row gap-10 mx-auto">
@@ -138,13 +132,7 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
                 <h2 className="text-2xl font-medium">
                   Nội dung chi tiết khóa học
                 </h2>
-                {/* <div className="mt-2">
-                  {sections.length} phần • 12 projects • 8 quizzes
-                </div> */}
               </div>
-              {/* <div className="cursor-pointer px-1 select-none rounded text-indigo-700 font-semibold hover:bg-gray-200">
-                Expand all sections
-              </div> */}
             </div>
 
             <div className="mt-4 divide-y divide-gray-500 border-t border-b lg:border border-gray-500">
@@ -180,18 +168,14 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
         <section className="px-4 mt-12 bg-[#10162f]">
           <div className="max-w-2xl mx-auto py-16 text-center">
             <h2 className="text-3xl lg:text-4xl font-semibold lg:leading-tight text-gray-100">
-              Bạn đã sẵn sàng?
+              Tất cả đều miễn phí
             </h2>
             <p className="mt-4 lg:text-xl font-medium lg:font-semibold lg:leading-tight text-gray-200">
               Khóa học hoàn toàn miễn phí dành cho tất cả mọi người, học mọi lúc
-              mọi nơi ngay trên Youtube
+              mọi nơi trên Youtube.
             </p>
 
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.youtube.com/@giadinhlaptrinh"
-            >
+            <a target="_blank" rel="noreferrer" href={course.social.playlist}>
               <GdButton variant="secondary" className="mt-10">
                 Xem trên Youtube
               </GdButton>
@@ -204,20 +188,14 @@ const HomePage: NextPage<HomePageProps> = ({ course, sections = [] }) => {
             <div className="flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center">
               <div className="w-full lg:w-6/12 flex-shrink-0">
                 <h2 className="text-3xl lg:text-4xl font-semibold lg:leading-tight text-gray-900">
-                  Tham gia cùng bạn bè trên khắp thế giới và bắt đầu học
-                  JavaScript ngay hôm nay
+                  Tham gia cùng bạn bè trên khắp thế giới và bắt đầu học sử dụng
+                  Git ngay hôm nay
                 </h2>
-
-                <div className="text-center lg:text-left">
-                  <GdButton variant="primary" wide className="mt-8">
-                    Bắt đầu
-                  </GdButton>
-                </div>
               </div>
 
               <div className="w-full lg:w-5/12 mb-8 lg:mb-0 flex justify-center lg:justify-end items-center">
                 <img
-                  className="w-3/5"
+                  className="w-4/5"
                   src={`${process.env.BASE_URL}/images/girl-enjoying-reading.png`}
                   alt="Picture of the author"
                 />

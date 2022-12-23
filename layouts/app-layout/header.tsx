@@ -1,6 +1,4 @@
-import { PlayCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { GdButton } from "../../components/buttons";
 
 const Header: React.FC = () => {
   return (
@@ -14,7 +12,7 @@ const Header: React.FC = () => {
               </span>
             </Link>
           </div>
-          <div className="ml-10 space-x-4">
+          {/* <div className="ml-10 space-x-4">
             <a
               target="_blank"
               rel="noreferrer"
@@ -40,7 +38,7 @@ const Header: React.FC = () => {
                 Watch on Youtube
               </GdButton>
             </a>
-          </div>
+          </div> */}
         </div>
       </nav>
     </header>

@@ -27,7 +27,7 @@ export const GdButton = ({
         variant === "secondary",
     },
     {
-      "px-5 py-1 text-xs": size === "sm",
+      "px-6 py-2 text-base": size === "sm",
       "px-8 py-3 text-base font-medium": size === "base",
       "px-10 py-3 text-lg": size === "lg",
       "px-16": size === "base" && wide,

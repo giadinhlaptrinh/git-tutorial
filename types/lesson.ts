@@ -22,6 +22,8 @@ export type Post = {
   description?: string;
   order?: string;
   filePath?: string;
+  nextSlug?: string;
+  prevSlug?: string;
   socialLinks?: {
     github?: string;
     youtube?: string;

@@ -137,49 +137,53 @@ export async function getLesson(directoryTarget: string, fileTarget: string): Pr
           const sectionMetadata = await getSectionMetadata(sectionDirectoryName);
           const sectionTitle = getTitle(directoryTarget, sectionMetadata.title);
 
-          // let nextSlug;
-          // let prevSlug;
+          let nextSlug;
+          let prevSlug;
 
           // get next
-          // if (lessonFileNames[j + 1]) {
-          //   // has next in section
-          //   const { slug: next } = slugify(lessonFileNames[j + 1]);
-          //   nextSlug = `${directoryTarget}/${next.replace(/\.md$/, "")}`;
-          // } else if (sectionDirectoryNames[i + 1]) {
-          //   // has next in next section
-          //   const nextDir = (
-          //     await readdir(path.join(lessonsPath, sectionDirectoryNames[i + 1]))
-          //   ).filter((str) => str.endsWith(".md"));
-          //   const nextDirSlug = slugify(sectionDirectoryNames[i + 1]).slug;
-          //   const nextLessonSlug = slugify(nextDir[0]).slug.replace(
-          //     /\.md$/,
-          //     ""
-          //   );
-          //   nextSlug = `${nextDirSlug}/${nextLessonSlug}`;
-          // } else {
-          //   // last section
-          //   nextSlug = null;
-          // }
+          if (lessonFileNames[j + 1]) {
+            // has next in section
+            const { slug: next } = slugify(lessonFileNames[j + 1]);
+            nextSlug = `${directoryTarget}/${next.replace(/\.md$/, "")}`;
+          } else if (sectionDirectoryNames[i + 1]) {
+            // has next in next section
+            const nextDir = (
+              await readdir(path.join(lessonsPath, sectionDirectoryNames[i + 1]))
+            ).filter((str) => str.endsWith(".md"));
+            const nextDirSlug = slugify(sectionDirectoryNames[i + 1]).slug;
+            const nextLessonSlug = slugify(nextDir[0]).slug.replace(
+              /\.md$/,
+              ""
+            );
+            nextSlug = `${nextDirSlug}/${nextLessonSlug}`;
+          } else {
+            // last section
+            nextSlug = null;
+          }
 
           // get prev
-          // if (lessonDir[j - 1]) {
-          //   // has prev in section
-          //   const { slug: prev } = slugify(lessonDir[j - 1]);
-          //   prevSlug = `${directoryTarget}/${prev.replace(/\.md$/, "")}`;
-          // } else if (sectionDirectoryNames[i - 1]) {
-          //   // has prev in prev section
-          //   const prevDir = (
-          //     await fs.readdir(path.join(lessonsPath, sectionDirectoryNames[i - 1]))
-          //   ).filter((str) => str.endsWith(".md"));
-          //   const prevDirSlug = slugify(sectionDirectoryNames[i - 1]).slug;
-          //   const prevLessonSlug = slugify(
-          //     prevDir[prevDir.length - 1]
-          //   ).slug.replace(/\.md$/, "");
-          //   prevSlug = `${prevDirSlug}/${prevLessonSlug}`;
-          // } else {
-          //   // first section
-          //   prevSlug = null;
-          // }
+          if (lessonFileNames[j - 1]) {
+            // has prev in section
+            const { slug: prev } = slugify(lessonFileNames[j - 1]);
+            prevSlug = `${directoryTarget}/${prev.replace(/\.md$/, "")}`;
+          } else if (sectionDirectoryNames[i - 1]) {
+            // has prev in prev section
+            const prevDir = (
+              await readdir(path.join(lessonsPath, sectionDirectoryNames[i - 1]))
+            ).filter((str) => str.endsWith(".md"));
+            const prevDirSlug = slugify(sectionDirectoryNames[i - 1]).slug;
+            const prevLessonSlug = slugify(
+              prevDir[prevDir.length - 1]
+            ).slug.replace(/\.md$/, "");
+            prevSlug = `${prevDirSlug}/${prevLessonSlug}`;
+          } else {
+            // first section
+            prevSlug = null;
+          }
+
+          const base = process.env.BASE_URL ? process.env.BASE_URL : "/";
+
+          console.log("nextSlug", nextSlug)
 
           return {
             attributes: lessonData,
@@ -187,7 +191,9 @@ export async function getLesson(directoryTarget: string, fileTarget: string): Pr
             slug: fileTarget,
             title: lessonTitle,
             sectionTitle,
-            filePath: lessonFilePath
+            filePath: lessonFilePath,
+            nextSlug: nextSlug ? path.join(base, nextSlug) : '',
+            prevSlug: prevSlug ? path.join(base, prevSlug) : '',
           };
         }
       }
