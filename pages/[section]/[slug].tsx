@@ -61,7 +61,7 @@ const LessonPage: NextPage<LessonPageProps> = ({ post, course }) => {
         <meta property="og:description" content={course.description} />
         <meta
           property="og:image"
-          content={`${process.env.BASE_URL}/images/cover.png`}
+          content={`${process.env.BASE_URL}/images/cover-v2.png`}
         />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
@@ -79,7 +79,7 @@ const LessonPage: NextPage<LessonPageProps> = ({ post, course }) => {
         />
         <meta
           property="twitter:image"
-          content={`${process.env.BASE_URL}/images/cover.png`}
+          content={`${process.env.BASE_URL}/images/cover-v2.png`}
         />
         <meta name="twitter:creator" content="truonghungit" />
       </Head>
